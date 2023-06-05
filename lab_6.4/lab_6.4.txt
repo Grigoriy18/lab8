@@ -1,0 +1,154 @@
+public class One {
+    int number;
+    double value;
+    String name;
+
+    public One(int number, double value, String name) {
+        this.number = number;
+        this.value = value;
+        this.name = name;
+    }
+
+    // Void-метод з використанням змінних екземпляра
+    public void voidMethod() {
+        System.out.println("Void method in class One");
+        System.out.println("Number: " + number);
+        System.out.println("Value: " + value);
+        System.out.println("Name: " + name);
+    }
+
+    // Типізований метод з використанням змінних екземпляра
+    public int typedMethod(int parameter) {
+        System.out.println("Typed method in class One");
+        System.out.println("Parameter: " + parameter);
+        return number + parameter;
+    }
+
+    // Метод, що приймає екземпляр іншого класу в якості параметру
+    public void otherClassMethod(Two other) {
+        System.out.println("Method in class One that accepts an instance of class Two");
+        System.out.println("Age: " + other.age);
+        System.out.println("Weight: " + other.weight);
+        System.out.println("Is Student: " + other.isStudent);
+    }
+
+    // Метод, що приймає параметри динамічної довжини
+    public void dynamicArgumentsMethod(String... args) {
+        System.out.println("Method in class One with dynamic arguments");
+        System.out.println("Arguments:");
+        for (String arg : args) {
+            System.out.println(arg);
+        }
+    }
+}
+
+public class Two {
+    int age;
+    double weight;
+    boolean isStudent;
+
+    public Two(int age, double weight, boolean isStudent) {
+        this.age = age;
+        this.weight = weight;
+        this.isStudent = isStudent;
+    }
+
+    // Void-метод з використанням змінних екземпляра
+    public void voidMethod() {
+        System.out.println("Void method in class Two");
+        System.out.println("Age: " + age);
+        System.out.println("Weight: " + weight);
+        System.out.println("Is Student: " + isStudent);
+    }
+
+    // Типізований метод з використанням змінних екземпляра
+    public double typedMethod(double parameter) {
+        System.out.println("Typed method in class Two");
+        System.out.println("Parameter: " + parameter);
+        return weight * parameter;
+    }
+
+    // Метод, що приймає екземпляр іншого класу в якості параметру
+    public void otherClassMethod(One other) {
+        System.out.println("Method in class Two that accepts an instance of class One");
+        System.out.println("Number: " + other.number);
+        System.out.println("Value: " + other.value);
+        System.out.println("Name: " + other.name);
+    }
+
+    // Метод, що приймає параметри динамічної довжини
+    public void dynamicArgumentsMethod(int... args) {
+        System.out.println("Method in class Two with dynamic arguments");
+        System.out.println("Arguments:");
+        for (int arg : args) {
+            System.out.println(arg);
+        }
+    }
+}
+
+public class Three {
+    double height;
+    int quantity;
+    char symbol;
+
+    public Three(double height, int quantity, char symbol) {
+        this.height = height;
+        this.quantity = quantity;
+        this.symbol = symbol;
+    }
+
+    // Void-метод з використанням змінних екземпляра
+    public void voidMethod() {
+        System.out.println("Void method in class Three");
+        System.out.println("Height: " + height);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Symbol: " + symbol);
+    }
+
+    // Типізований метод з використанням змінних екземпляра
+    public double typedMethod(double parameter) {
+        System.out.println("Typed method in class Three");
+        System.out.println("Parameter: " + parameter);
+        return height * parameter;
+    }
+// Метод, що приймає екземпляр іншого класу в якості параметру
+    public void otherClassMethod(Two other) {
+        System.out.println("Method in class Three that accepts an instance of class Two");
+        System.out.println("Age: " + other.age);
+        System.out.println("Weight: " + other.weight);
+        System.out.println("Is Student: " + other.isStudent);
+    }
+
+    // Метод, що приймає параметри динамічної довжини
+    public void dynamicArgumentsMethod(boolean... args) {
+        System.out.println("Method in class Three with dynamic arguments");
+        System.out.println("Arguments:");
+        for (boolean arg : args) {
+            System.out.println(arg);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        One one = new One(10, 3.14, "Test");
+        Two two = new Two(20, 65.5, true);
+        Three three = new Three(1.8, 5, 'A');
+
+        // Виклик методів на виконання для кожного екземпляра класу
+        one.voidMethod();
+        int result = one.typedMethod(5);
+        System.out.println("Result: " + result);
+        one.dynamicArgumentsMethod("Argument 1", "Argument 2", "Argument 3");
+
+        two.voidMethod();
+        double value = two.typedMethod(2.5);
+        System.out.println("Value: " + value);
+        two.dynamicArgumentsMethod(1, 2, 3, 4, 5);
+
+        three.voidMethod();
+        double heightValue = three.typedMethod(3.2);
+        System.out.println("Height Value: " + heightValue);
+        three.dynamicArgumentsMethod(true, false, true);
+    }
+}
